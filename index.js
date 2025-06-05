@@ -1,13 +1,16 @@
 import express from "express";
 import env from "dotenv";
 import { dbConnection } from "./database/databaseConnection.js";
+import categoryRouter from './routes/category.route.js'
 
 const app = express();
-env.config()
+env.config();
 const port = process.env.PORT || 8000;
-dbConnection()
+dbConnection();
 
-app.use(express.json())
+app.use(express.json());
+
+app.use('/api/category',categoryRouter)
 
 app.use((error, req, res, next) => {
   res.status(error.statusCode || 500).json({
