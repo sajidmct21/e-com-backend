@@ -5,6 +5,7 @@ import { dbConnection } from "./database/databaseConnection.js";
 // Routes Import
 import categoryRouter from "./routes/category.route.js";
 import brandRouter from "./routes/brand.routes.js";
+import productRouter from './routes/product.routes.js'
 
 import cors from "cors";
 
@@ -19,6 +20,7 @@ app.use(cors());
 // Routes middlewares
 app.use("/api/category", categoryRouter);
 app.use("/api/brand", brandRouter);
+app.use('/api/product', productRouter)
 
 // Error handling middleware
 app.use((error, req, res, next) => {

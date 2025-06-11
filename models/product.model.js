@@ -17,16 +17,14 @@ const productSchema = mongoose.Schema(
       type: Number,
       required: [true, "Purchase price is required"],
     },
-    sellingPrice: {
+    discount: {
       type: Number,
-      required: [true, "Selling price is required"],
     },
     images: {
       type: Array(String),
     },
     categoryId: {
       type: Schema.Types.ObjectId,
-      required: [true, "Category Id is required"],
       ref: "Category",
     },
   },
